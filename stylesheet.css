@@ -18,6 +18,7 @@ img{
   vertical-align: bottom;
 }
 
+@media screen and (min-width: 481px) {
 header{
   text-align: center;
   background-color:#EEEEEE;
@@ -27,13 +28,27 @@ header{
   height: 10vh;
   width: 100%;
   position: fixed;
+} 
 }
 
+@media screen and (max-width: 480px) {
+  header{
+  text-align: center;
+  background-color:#EEEEEE;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  height: 13vh;
+  width: 100%;
+  position: fixed;
+} 
+}
 
 #nav ul{
   padding: 0;
 }
 
+@media screen and (min-width: 481px){
 #nav li{
   width: 140px;
   text-align: center;
@@ -49,6 +64,25 @@ header{
   color: #555555;
   padding: 20px;
 }
+}
+
+@media screen and (max-width: 480px){
+#nav li{
+  width: 140px;
+  text-align: center;
+  height: 35px;
+  line-height: 35px;
+  margin-right: 2px;
+  list-style: none;
+  display: inline-block;
+}
+ 
+#nav a{
+  text-decoration: none;
+  color: #555555;
+  padding: 20px;
+}
+}
 
 #nav:visited{
   color: #788d98;
@@ -58,11 +92,12 @@ a:hover{
   text-decoration: underline;
 }
 
+@media screen and (min-width: 481px){
 #main-title{
   height: 50vh;
   width: 100%;
   margin-top: 10vh;
-  background-image: url(https://kae441.github.io/seibo-yuki-portfolio/photogragh用画像１.jpg);
+  background-image: url(photogragh用画像１.jpg);
   /*大石さんと背景画像相談*/
   background-color: #cf8c08;
   /* 大石さんと色見相談 */
@@ -70,6 +105,23 @@ a:hover{
   background-size: cover;
   text-align: center;
   position: relative;  
+}
+}
+
+@media screen and (max-width: 480px){
+#main-title{
+  height: 50vh;
+  width: 100%;
+  margin-top: 10vh;
+  background-image: url(photogragh用画像２.jpg);
+  /*大石さんと背景画像相談*/
+  background-color: #cf8c08;
+  /* 大石さんと色見相談 */
+  background-blend-mode: screen;
+  background-size: cover;
+  text-align: center;
+  position: relative;  
+}
 }
 
 .main-massage{
@@ -98,8 +150,16 @@ a:hover{
   font-family: "Yu Mincho";
 }
 
+@media screen and (min-width: 481px){
+#contents{
+  margin: 10vh;
+}
+}
+
+@media screen and (max-width: 480px){
 #contents{
   margin: 3vh;
+}
 }
 
 #contents h3{
@@ -109,8 +169,18 @@ a:hover{
   margin: 8vh;
 }
 
+@media screen and (min-width: 481px){
 #more{
   text-align: right;
+  margin-top: 10vh;
+}
+}
+
+@media screen and (max-width: 480px){
+#more{
+  text-align: right;
+  margin-top: 8vh;
+}
 }
 
 .btn-more{
@@ -118,10 +188,10 @@ a:hover{
   color:#fff;
   border:none;
   position:relative;
-  padding: 1vh 4vh;
-  height:10vh;
+  padding:  0.6vh 4vh;
+  height:4vh;
   margin-top: 5vh;
-  border-radius: 3px;
+  border-radius: 2px;
   cursor:pointer;
   transition:800ms ease all;
   outline:none;
@@ -187,6 +257,7 @@ a:hover{
   margin-top: 2vh;
 }
 
+@media screen and (min-width: 481px){
 .profile-image{
   width: 100vh;
   height: 45vh;
@@ -202,7 +273,32 @@ a:hover{
   width: 45vh;
   border-radius: 5px;
 }
+}
 
+@media screen and (max-width: 480px){
+.profile-image{
+  height: 35vh;
+  margin-left: auto;
+  margin-right: auto; 
+  margin-top: 8vh;
+  margin-bottom: 11vh;
+  text-align: center;
+}
+  
+#about img{
+  height: 35vh;
+  width: 35vh;
+  border-radius: 5px;
+}
+}
+
+
+#contact ul{
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (min-width: 481px){
 #contact li{
   list-style: none;
   margin-right: 10vh;
@@ -216,22 +312,47 @@ a:hover{
   height: 40vh;              /* 高さ指定 */
   text-align:  center;        /* 中央寄せ */
 }
-
+  
 .contact-li a{
   height: 20vh;
   width: 20vh; 
   padding-right: 10vh;         /* 高さ指定 */
   display: inline-block;      /* インラインブロックにする */
 }
-
+  
 #contact img{
   width: 10vh;
   height: 10vh;
   margin: 10vh;
 }
+}
 
-#contact ul{
-  padding: 0;
+@media screen and (max-width: 480px){
+#contact li{
+  list-style: none;
+  height: 15vh;
+  width: 15vh; 
+  display: inline-block; 
+}
+
+.contact-li{
+  padding: 20px;              /* 余白指定 */
+  height: 20vh;              /* 高さ指定 */
+  text-align:  center;        /* 中央寄せ */
+}
+
+.contact-li a{
+  height: 15vh;
+  width: 15vh; 
+  padding-right: 10vh;         /* 高さ指定 */
+  display: inline-block;      /* インラインブロックにする */
+}
+
+#contact img{
+  width: 8vh;
+  height: 8vh;
+  margin: 5vh;
+}
 }
 
 .contact-g{
@@ -265,15 +386,10 @@ h4{
   display: inline-block;
   border-bottom: solid 2px  rgba(218, 165, 32, 0.8);
   width: auto;
-  padding-right: 20vh;
-  padding-left: 20vh;
+  padding-right: 15vh;
+  padding-left: 15vh;
 }
-
-.anniversary-main,.event-main,.prblandhing-main{
-  margin-bottom: 15vh;
-}
-
-.annversary-img,.event-img,.prblandhing-img{
+.annversary-img,.event-img,.promotional-img{
   width: 55vh;
   height: 38vh;
   border-radius: 5px;
@@ -282,21 +398,52 @@ h4{
   margin-right: 5vh;
 }
 
-.anniversary-txt,.event-txt,.prblandhing-txt{
+.anniversary-txt,.event-txt,.promotional-txt{
   display: inline-block;
   text-align: left;
 }
 
-.anniversary-li li,.event-li li,.prblandhing-li li{
+@media screen and (min-width: 481px){
+.anniversary-main,.event-main,.promotional-main{
+  margin-bottom: 15vh;
+}
+
+.anniversary-li li,.event-li li,.promotional-li li{
   list-style: none;
   display: inline-block;
   margin: 5vh;
 }
 
-.anniversary-li img,.event-li img,.prblandhing-li img{
+.anniversary-li img,.event-li img,.promotional-li img{
   height: 30vh;
   width: 45vh;
   border-radius: 5px;
+}
+}
+
+@media screen and (max-width: 480px){
+.anniversary-main,.event-main,.promotional-main{
+  margin-bottom: 5vh;
+}
+
+.anniversary-li ul,.event-li ul,.promotional-li ul{
+padding: 0;
+}
+
+.anniversary-li li,.event-li li,.promotional-li li{
+  list-style: none;
+  display: inline-block;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  margin-right: 1vh;
+  margin-left: 1vh;
+}
+  
+.anniversary-li img,.event-li img,.promotional-li img{
+  height: 17vh;
+  width: 25vh;
+  border-radius: 5px;
+}
 }
 
 .profile-img{
@@ -316,7 +463,6 @@ h4{
 
 .followsns li{
   list-style: none;
-  margin-right: 10vh;
   height: 20vh;
   width: 20vh; 
   display: inline-block; 
@@ -324,7 +470,7 @@ h4{
 
 .sns{
   padding: 20px;              /* 余白指定 */
-  height: auto;              /* 高さ指定 */
+  height: 20vh;              /* 高さ指定 */
   text-align:  center;        /* 中央寄せ */
 }
 
@@ -336,9 +482,9 @@ h4{
 }
 
 .sns img{
-  width: 10vh;
-  height: 10vh;
-  margin: 10vh;
+  width: 8vh;
+  height: 8vh;
+  margin: 5vh;
 }
 
 
