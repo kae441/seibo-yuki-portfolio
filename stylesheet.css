@@ -114,21 +114,43 @@ a:hover{
 }
 
 .btn-more{
-  display: inline-block;
-  padding: 0.3vh 4vh;
-  text-decoration: none;
-  background:white	;/*ボタン色*/
-  color: #999999	;
-  border: solid 2px #BBBBBB	;
-  border-radius: 3px;
+  background:#BBBBBB;
+  color:#fff;
+  border:none;
+  position:relative;
+  padding: 1vh 4vh;
+  height:10vh;
   margin-top: 5vh;
-}
-
-.btn-more:hover {
-  background: #888888;
-  color: white;
-  border: solid 2px #888888;
+  border-radius: 3px;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
   text-decoration: none;
+}
+.btn-more:hover{
+  background:#fff;
+  color:#888888;
+  text-decoration: none;
+}
+.btn-more:before,.btn-more:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:1px;
+  width:0;
+  background: #888888;
+  transition:400ms ease all;
+}
+.btn-more:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.btn-more:hover:before,.btn-more:hover:after{
+  width:100%;
+  transition:800ms ease all;
 }
 
 #service p ,#about p ,#contact p ,#service-more p ,#about-more p{
