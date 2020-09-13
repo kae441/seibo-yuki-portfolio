@@ -1,3 +1,4 @@
+
 body {
   font-family: "ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3", "Hiragino Kaku Gothic Pro", "æ¸¸ã‚´ã‚·ãƒƒã‚¯ Medium", "Yu Gothic Medium", "æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“", YuGothic, "ãƒ¡ã‚¤ãƒªã‚ª", Meiryo, Osaka, "ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯", "MS PGothic", sans-serif;
   font-size: 15px;
@@ -8,13 +9,14 @@ body {
   background-color: white;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 p,h1,h2,h3{
   margin-top: 0;
 }
 
-img{
+{
   vertical-align: bottom;
 }
 
@@ -29,19 +31,24 @@ header{
   width: 100%;
   position: fixed;
 } 
+
+footer{
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+}  
 }
 
 @media screen and (max-width: 480px) {
   header{
-  text-align: center;
-  background-color:#EEEEEE;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  height: 13vh;
-  width: 100%;
-  position: fixed;
+  padding: 3vh;
+  z-index: 999;
 } 
+
+footer{
+  margin-top: 100px;
+  margin-bottom: 3vh;
+  margin-left: 10px;
+}  
 }
 
 #nav ul{
@@ -50,7 +57,8 @@ header{
 
 @media screen and (max-width: 480px){
 #nav ul{
-  margin-top: 5px;
+  margin-top: 10vh;
+  margin-left: 10vw;
 }
 }
 
@@ -72,21 +80,120 @@ header{
 }
 }
 
+/*チェックボックス等は非表示に*/
+.nav-unshown {
+  display:none;
+}
+
 @media screen and (max-width: 480px){
 #nav li{
-  width: 100px;
+  width: 40vw;
   text-align: center;
-  height: 35px;
+  height: 8vh;
   line-height: 35px;
   margin-right: 2px;
   list-style: none;
-  display: inline-block;
 }
  
 #nav a{
   text-decoration: none;
   color: #555555;
-  padding: 15px;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: solid 2px  rgba(218, 165, 32, 0.8);
+  padding-right: 15vh;
+}
+
+#nav {
+  position: fixed;
+}
+
+/*アイコンのスペース*/
+#nav-open {
+  display: inline-block;
+  width: 30px;
+  height: 22px;
+  vertical-align: middle;
+}
+
+/*ハンバーガーアイコンをCSSだけで表現*/
+#nav-open span, #nav-open span:before, #nav-open span:after {
+  position: absolute;
+  height: 3px;/*線の太さ*/
+  width: 25px;/*長さ*/
+  border-radius: 3px;
+  background: #555;
+  display: block;
+  content: '';
+  cursor: pointer;
+  z-index: 9999;
+  transition: 0.5s;
+}
+#nav-open span:before {
+  bottom: -8px;
+}
+#nav-open span:after {
+  bottom: -16px;
+}
+
+/*閉じる用の薄黒カバー*/
+#nav-close {
+  display: none;/*はじめは隠しておく*/
+  position: fixed;
+  z-index: 100;
+  top: 0;/*全体に広がるように*/
+  left: 0;
+  width: 100px;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  transition: .3s ease-in-out;
+}
+
+/* アイコンがクリックされたら真ん中の線を透明にする */
+#nav-input:checked ~ #nav-open span {
+  background: rgba(255, 255, 255, 0);
+}
+
+/* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
+#nav-input:checked ~ #nav-open span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+
+#nav-input:checked ~ #nav-open span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/*中身*/
+#nav-content {
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 110;/*最前面に*/
+  width: 90%;/*右側に隙間を作る（閉じるカバーを表示）*/
+  max-width: 330px;/*最大幅（調整してください）*/
+  height: 100%;
+  background: #fff;/*背景色*/
+  transition: .3s ease-in-out;/*滑らかに表示*/
+  -webkit-transform: translateX(-105%);
+  transform: translateX(-105%);/*左に隠しておく*/
+}
+
+/*チェックが入ったらもろもろ表示*/
+#nav-input:checked ~ #nav-close {
+  display: block;/*カバーを表示*/
+  opacity: .5;
+}
+
+#nav-input:checked ~ #nav-content {
+  -webkit-transform: translateX(0%);
+  transform: translateX(0%);/*中身を表示（右へスライド）*/
+  box-shadow: 6px 0 25px rgba(0,0,0,.15);
 }
 }
 
@@ -105,7 +212,7 @@ header{
   height: 50vh;
   width: 100%;
   margin-top: 10vh;
-  background-image: url(photogragh用画像１.jpg);
+  background-image: url(hotogragh用画像１.jpg);
   /*大石さんと背景画像相談*/
   background-color: #cf8c08;
   /* 大石さんと色見相談 */
@@ -120,8 +227,7 @@ header{
 #main-title{
   height: 50vh;
   width: 100%;
-  margin-top: 10vh;
-  background-image: url(photogragh用画像２.jpg);
+  background-image: url(image/photogragh用画像２.jpg);
   /*大石さんと背景画像相談*/
   background-color: #cf8c08;
   /* 大石さんと色見相談 */
@@ -143,6 +249,7 @@ header{
   margin: auto;
 }
 
+@media screen and (min-width: 481px){
 .main-massage>h1{
   font-family: "Yu Mincho";
   font-size: 50px;
@@ -153,21 +260,34 @@ header{
   font-weight: 500;
   display: inline-block;
 }
+}
+
+@media screen and (max-width: 480px){
+.main-massage>h1{
+  font-family: "Yu Mincho";
+  font-size: 38px;
+  margin: 0;
+}
+
+.tsunagu{
+  font-weight: 500;
+  display: inline-block;
+}
+}
 
 .main-massage>h2{
   font-family: "Yu Mincho";
 }
 
+.main-massage>h3{
+  font-size: 15px;
+  font-family: "ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3", "Hiragino Kaku Gothic Pro", "æ¸¸ã‚´ã‚·ãƒƒã‚¯ Medium", "Yu Gothic Medium", "æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“", YuGothic, "ãƒ¡ã‚¤ãƒªã‚ª", Meiryo, Osaka, "ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯", "MS PGothic", sans-serif;
+  font-weight: 550;
+}
+
 @media screen and (min-width: 481px){
 #contents{
   margin: 10vh;
-}
-}
-
-@media screen and (max-width: 480px){
-#contents{
-  margin: 3vh;
-}
 }
 
 #contents h3{
@@ -176,21 +296,31 @@ header{
   font-weight: lighter;
   margin: 8vh;
 }
+}
+
+@media screen and (max-width: 480px){
+#contents{
+  margin-top: 8vw;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+#contents h3{
+  font-size: 40px;
+  text-align: center;
+  font-weight: lighter;
+}
+
+.section{
+  margin-bottom: 15vw;
+}
+}
 
 @media screen and (min-width: 481px){
 #more{
   text-align: right;
   margin-top: 10vh;
 }
-}
-
-@media screen and (max-width: 480px){
-#more{
-  text-align: right;
-  margin-top: 8vh;
-}
-}
-
 .btn-more{
   background:#BBBBBB;
   color:#fff;
@@ -230,6 +360,32 @@ header{
   width:100%;
   transition:800ms ease all;
 }
+}
+
+@media screen and (max-width: 480px){
+#more{
+  text-align: right;
+  margin-top: 8vh;
+  margin-bottom: 5vh;
+}
+.btn-more {
+  padding:  0.6vh 4vh;
+  height:4vh;
+  margin-top: 5vh;
+  margin-right: 3vw;
+  position:relative;
+  text-decoration: none;
+  border:none;
+  color: #555555;
+  border: solid 2px #888888;
+  border-radius: 2px;  
+}
+
+.btn-more:hover {
+  background: #888888;
+  color: white;
+}
+}
 
 #service p ,#about p ,#contact p ,#service-more p ,#about-more p{
   text-align: center;
@@ -239,26 +395,22 @@ header{
   text-align: center;
 }
 
+.works-li{
+  list-style: none;
+  width: auto;
+  text-align: center;
+}
+
+@media screen and (min-width: 481px){
 .works-li img{
+  transition: 0.5s;             /* アニメーション指定 */
   height: 30vh;
   width: 45vh;
   border-radius: 5px;
 }
 
-@media screen and (min-width: 481px){
-.works-li img{
-  transition: 0.5s;               /* アニメーション指定 */
-}
-
 .works-li img:hover{
   opacity:  0.8;                  /* 透明度指定 */
-}
-}
-
-.works-li{
-  list-style: none;
-  width: auto;
-  text-align: center;
 }
 
 .works-li li{
@@ -270,13 +422,19 @@ header{
   display:inline-block;
   vertical-align:top;
 }
+}
 
 @media screen and (max-width: 480px){
-.works-li li{
-  height: 45vh;
-  width: 45vh;
-  margin-top: 15vh;
-  margin-bottom: 10vh;
+.works-li img{
+  height: 171px;
+  width: 256px;
+  
+  border-radius: 5px;
+}
+  .works-li li{
+  width: 80vw;
+  margin-top: 5vh;
+  margin-bottom: 5vw;
   display:inline-block;
   vertical-align:top;
 }
@@ -310,7 +468,6 @@ header{
 
 @media screen and (max-width: 480px){
 .profile-image{
-  height: 35vh;
   margin-left: auto;
   margin-right: auto; 
   margin-top: 8vh;
@@ -319,12 +476,11 @@ header{
 }
   
 #about img{
-  height: 35vh;
-  width: 35vh;
+  height: 256px;
+  width: 256px;
   border-radius: 5px;
 }
 }
-
 
 #contact ul{
   padding: 0;
@@ -362,39 +518,38 @@ header{
 
 #contact img:hover {
   opacity:  0.5;                  /* 透明度指定 */
-} 
+}
 }
 
 @media screen and (max-width: 480px){
 #contact li{
   list-style: none;
-  height: 15vh;
-  width: 15vh; 
+  height: 70px;
+  width: 70px; 
   display: inline-block; 
 }
 
 .contact-li{
-  padding: 20px;              /* 余白指定 */
-  height: 20vh;              /* 高さ指定 */
+  padding: 40px;              /* 余白指定 */
+  height: auto;              /* 高さ指定 */
   text-align:  center;        /* 中央寄せ */
 }
 
 .contact-li a{
-  height: 15vh;
-  width: 15vh; 
+  height: 40px;
+  width: 40px; 
   padding-right: 10vh;         /* 高さ指定 */
   display: inline-block;      /* インラインブロックにする */
 }
 
-#contact img{
-  width: 8vh;
-  height: 8vh;
-  margin: 5vh;
+#contact img,#contact-Gmail img{
+  width: 50px;
+  height: 50px;
 }
 }
 
 .contact-g{
- height: 40vh;
+ height: auto;
  text-align: center; 
 }
 
@@ -402,14 +557,11 @@ header{
   display: inline-block;
 }
 
-footer{
-  margin-top: 3vh;
-   margin-bottom: 3vh;
-}
-
+@media screen and (min-width: 481px){
 #service-more,#works-more,#about-more{
   margin-top: 20vh;
   margin-bottom: 20vh;
+}
 }
 
 #works-more{
@@ -427,6 +579,13 @@ h4{
   padding-right: 15vh;
   padding-left: 15vh;
 }
+
+.anniversary-txt,.event-txt,.promotional-txt{
+  display: inline-block;
+  text-align: left;
+}
+
+@media screen and (min-width: 481px){
 .annversary-img,.event-img,.promotional-img{
   width: 55vh;
   height: 38vh;
@@ -436,12 +595,6 @@ h4{
   margin-right: 5vh;
 }
 
-.anniversary-txt,.event-txt,.promotional-txt{
-  display: inline-block;
-  text-align: left;
-}
-
-@media screen and (min-width: 481px){
 .anniversary-main,.event-main,.promotional-main{
   margin-bottom: 15vh;
 }
@@ -460,6 +613,14 @@ h4{
 }
 
 @media screen and (max-width: 480px){
+.annversary-img,.event-img,.promotional-img{
+  width: 250px;
+  height: 187px;
+  border-radius: 5px;
+  display:inline-block;
+  text-align:left;
+}
+
 .anniversary-main,.event-main,.promotional-main{
   margin-bottom: 5vh;
 }
@@ -478,17 +639,28 @@ padding: 0;
 }
   
 .anniversary-li img,.event-li img,.promotional-li img{
-  height: 17vh;
-  width: 25vh;
+  height: 105px;
+  width: 140px;
   border-radius: 5px;
 }
 }
 
+@media screen and (min-width: 481px){
 .profile-img{
   height: 45vh;
   width: 45vh;
   border-radius: 5px;
   margin: 5vh;
+}
+}
+
+@media screen and (max-width: 480px){
+.profile-img{
+  height: 256px;
+  width: 256px;
+  border-radius: 5px;
+  margin: 5vh;
+}
 }
 
 .profile{
@@ -499,17 +671,18 @@ padding: 0;
   text-align: center;
 }
 
+.sns{
+  padding: 20px;              /* 余白指定 */
+  height: auto;              /* 高さ指定 */
+  text-align:  center;        /* 中央寄せ */
+}
+
+@media screen and (min-width: 481px){
 .followsns li{
   list-style: none;
   height: 20vh;
   width: 20vh; 
   display: inline-block; 
-}
-
-.sns{
-  padding: 20px;              /* 余白指定 */
-  height: 20vh;              /* 高さ指定 */
-  text-align:  center;        /* 中央寄せ */
 }
 
 .sns a{
@@ -525,13 +698,33 @@ padding: 0;
   margin: 5vh;
 }
 
-@media screen and (min-width: 481px){
 .sns img{
   transition: 0.5s;               /* アニメーション指定 */
 }
 
 .sns img:hover {
   opacity:  0.5;                  /* 透明度指定 */
+}
+}
+
+@media screen and (max-width: 480px){
+.followsns li{
+  list-style: none;
+  height: 70px;
+  width: 70px; 
+  display: inline-block; 
+}
+
+.sns a{
+  height: 40px;
+  width: 40px; 
+  padding-right: 10vh;         /* 高さ指定 */
+  display: inline-block;      /* インラインブロックにする */
+}
+
+.sns img{
+  width: 50px;
+  height: 50px;
 }
 }
 
