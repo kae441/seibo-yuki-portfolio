@@ -100,10 +100,6 @@ header{
 }
 }
 
-#nav:visited{
-  color: #788d98;
-}
-
 @media screen and (min-width: 481px){
 #main-title{
   height: 50vh;
