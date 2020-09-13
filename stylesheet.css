@@ -245,6 +245,16 @@ header{
   border-radius: 5px;
 }
 
+@media screen and (min-width: 481px){
+.works-li img{
+  transition: 0.5s;               /* アニメーション指定 */
+}
+
+.works-li img:hover{
+  opacity:  0.8;                  /* 透明度指定 */
+}
+}
+
 .works-li{
   list-style: none;
   width: auto;
@@ -332,7 +342,12 @@ header{
   width: 10vh;
   height: 10vh;
   margin: 10vh;
+  transition: 0.5s;               /* アニメーション指定 */
 }
+
+#contact img:hover {
+  opacity:  0.5;                  /* 透明度指定 */
+} 
 }
 
 @media screen and (max-width: 480px){
@@ -495,5 +510,14 @@ padding: 0;
   margin: 5vh;
 }
 
+@media screen and (min-width: 481px){
+.sns img{
+  transition: 0.5s;               /* アニメーション指定 */
+}
+
+.sns img:hover {
+  opacity:  0.5;                  /* 透明度指定 */
+}
+}
 
 
