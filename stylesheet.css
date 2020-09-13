@@ -48,6 +48,12 @@ header{
   padding: 0;
 }
 
+@media screen and (max-width: 480px){
+#nav ul{
+  margin: 0;
+}
+}
+
 @media screen and (min-width: 481px){
 #nav li{
   width: 140px;
@@ -84,12 +90,18 @@ header{
 }
 }
 
-#nav:visited{
-  color: #788d98;
+@media screen and (min-width: 481px){
+#nav a:hover{
+  background:#fff;
+  text-decoration: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 }
 
-a:hover{
-  text-decoration: underline;
+#nav:visited{
+  color: #788d98;
 }
 
 @media screen and (min-width: 481px){
