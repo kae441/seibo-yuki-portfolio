@@ -76,7 +76,7 @@ header{
 #nav li{
   width: 100px;
   text-align: center;
-  height: 50px;
+  height: 35px;
   line-height: 35px;
   margin-right: 2px;
   list-style: none;
@@ -86,7 +86,7 @@ header{
 #nav a{
   text-decoration: none;
   color: #555555;
-  padding: 20px;
+  padding: 15px;
 }
 }
 
@@ -269,6 +269,21 @@ header{
   margin-right: 10vh;
   display:inline-block;
   vertical-align:top;
+}
+
+@media screen and (max-width: 480px){
+.works-li li{
+  height: 45vh;
+  width: 45vh;
+  margin-top: 15vh;
+  margin-bottom: 10vh;
+  display:inline-block;
+  vertical-align:top;
+}
+
+.works-li ul{
+  padding: 0;
+}
 }
 
 .works-li p{
