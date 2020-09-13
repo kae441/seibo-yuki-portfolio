@@ -74,7 +74,7 @@ header{
 
 @media screen and (max-width: 480px){
 #nav li{
-  width: 120px;
+  width: 100px;
   text-align: center;
   height: 50px;
   line-height: 35px;
